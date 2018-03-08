@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center>
+    <span>1. Pogoda aktualna</span>
+    <br/>
+    <span>2. Pogoda na najbliższe 5 dni</span>
+    <br/>
+    <form method="post" action="/">
+        <input type="number" th:name="number" placeholder="number">
+        <input type="submit" value="Check">
+    </form>
+</center>
+</body>
+</html>

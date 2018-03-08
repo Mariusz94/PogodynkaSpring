@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center>
+    <form method="post" action="/weather">
+        Miasto: <input type="text" th:name="city" placeholder="city"/>
+        <input type="submit" value="Sprawdz pogode">
+        <br/>
+        <br/>
+    </form>
+    <table th:if="${text != null}" border="5">
+        <tr>
+            <td>City name</td><td>Temperature</td><td>Pressure</td><td>Humidity</td>
+            <td>Clouds</td><td>Weather comment</td>
+        </tr>
+        <tr>
+            <td><span th:text="${text.getCityName()}"></span></td>
+            <td th:bgcolor="${(text.getTemperature() - 273) > 3} ? 'red' : 'green'"><span th:text="${text.getTemperature() - 273}"></span></td>
+            <td th:bgcolor="${text.getPressure() > 1000} ? 'yellow' : 'red'"><span th:text="${text.getPressure()}"></span></td>
+            <td><span th:text="${text.getHumidity()}"></span></td>
+            <td><span th:text="${text.getClouds()}"></span></td>
+            <td><span th:text="${text.getWeatherComment()}"></span></td>
+        </tr>
+    </table>
+</center>
+</body>
+</html>
